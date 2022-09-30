@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta http-equiv="Content-Type e" content="IE=edge" /><!-- 强制使用当前版本的兼容模式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--必要样式-->
+    <style type="text/css">
+        html,
+        body {
+            
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            color: #999;
+            overflow: hidden;
+        }
+
+        #player {
+            height: 100% !important;
+            width: 100% !important;
+            object-fit: fill;
+        }
+    </style>
+</head>
+
+<body oncontextmenu = "return false" >
+    <div id="player"></div>
+    <script type="text/javascript">
+	    var myjx="https://parse.endless.ee/analysis/?url=";
+        function _GET(name, isurl) {
+            isurl = isurl || false;
+		    var word = "(^|&)" + name + "=([^&]*)(&|$)";
+            if (isurl) {word = "(^|&)" + name + "=(.*?)$"; }
+            var reg = new RegExp(word, "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r !== null) {
+              return decodeURI(r[2]);
+            };
+            return "";
+        }
+		var src = decodeURIComponent(_GET("url",true));
+
+        if(src!==''){
+        document.getElementById('player').innerHTML = '<iframe name="zzapi" id="zzapi" src="' + myjx+ encodeURI(src) + '" scrolling="0" frameborder="0" width="100%" height="100%" allowfullscreen="allowfullscreen"  mozallowfullscreen="mozallowfullscreen"  msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>';
+        }else{
+
+            document.getElementById('player').innerHTML='<iframe name="zzapi" id="zzapi" src="./error.html" scrolling="0" frameborder="0" width="100%" height="100%" allowfullscreen="allowfullscreen"  mozallowfullscreen="mozallowfullscreen"  msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>';  
+        }
+    </script>
+</body>
+<!--禁止审查代码start-->
+<script>
+// 返回桌面的时候显示
+((function() {
+		var callbacks = [],
+			timeLimit = 50,
+			open = false;
+		setInterval(loop, 1);
+		return {
+			addListener: function(fn) {
+				callbacks.push(fn);
+			},
+			cancleListenr: function(fn) {
+				callbacks = callbacks.filter(function(v) {
+					return v !== fn;
+				});
+			}
+		}
+
+		function loop() {
+			var startTime = new Date();
+			debugger;
+			if (new Date() - startTime > timeLimit) {
+				if (!open) {
+					callbacks.forEach(function(fn) {
+						fn.call(null);
+					});
+				}
+				open = true;
+				window.stop();
+				alert('温馨提醒：\n小样！还想扒我的站？\n自己老实一点！');
+				document.body.innerHTML = "";
+			} else {
+				open = false;
+			}
+		}
+	})()).addListener(function() {
+		window.location.reload();
+	});
+
+// js键盘监听事件-监听键盘F12(123)-触发文件为空
+$(document).keydown(function(event) {
+	if (event.keyCode == 123) {
+		alert('温馨提醒：\n小伙子！你想干嘛？又想扒我站？');
+		document.body.innerHTML = "";
+	}
+});
+
+//显示版权
+console.log("\n %c endless.ee %c https://endless.ee/ \n\n",
+			"color: #fadfa3; background: #2f55d4; padding:5px 0;", "background: #fadfa3; padding: 5px 0;")
+</script>
+<!--禁止审查代码end-->
+<script>
+!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JOrwpdHrWv1k2sjL",ck:"JOrwpdHrWv1k2sjL"});
+</script>
+</html>
